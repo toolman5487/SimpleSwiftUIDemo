@@ -42,15 +42,9 @@ struct PhotosView: View {
                                     case .success(let image):
                                         image
                                             .resizable()
-                                            .scaledToFill()
+                                            .scaledToFit()
                                     case .failure(let error):
-                                        VStack {
-                                            Image(systemName: "exclamationmark.triangle")
-                                                .foregroundColor(.red)
-                                            Text(error.localizedDescription)
-                                                .font(.caption)
-                                                .foregroundColor(.red)
-                                        }
+                                        EmptyView()
                                     @unknown default:
                                         EmptyView()
                                     }
@@ -60,6 +54,9 @@ struct PhotosView: View {
                             }
                         }
                         .padding(2)
+                    }
+                    .refreshable {
+                        await vm.fetchPhotos()
                     }
                 }
             }
