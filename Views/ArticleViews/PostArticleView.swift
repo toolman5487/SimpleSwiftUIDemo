@@ -12,55 +12,81 @@ struct PostArticleView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject private var postVM = PostViewModel()
+    @State private var showPostSuccess = false
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Form {
-                    Section(header: Text("標題")) {
-                        TextField("請輸入標題", text: $postVM.title)
-                    }
-                    Section(header: Text("內文")) {
-                        TextEditor(text: $postVM.body)
-                            .frame(height: 120)
-                    }
-                    Section(header: Text("User ID")) {
-                        Stepper(value: $postVM.userId, in: 1...10) {
-                            Text("\(postVM.userId)")
-                        }
-                    }
-                    if let error = postVM.errorMessage {
-                        Text(error)
-                            .foregroundColor(.red)
-                    }
-                    Button("送出") {
-                        postVM.addPost()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 32)
-                    .foregroundColor(.init(uiColor: .label))
-                    .cornerRadius(10)
-                    .disabled(postVM.isPosting || postVM.title.isEmpty || postVM.body.isEmpty)
+            VStack(alignment: .leading, spacing: 10) {
+                Group {
+                    Text("標題")
+                    TextField("請輸入標題", text: $postVM.title)
+                        .textFieldStyle(.roundedBorder)
                 }
+                .padding(.horizontal)
                 
-                if postVM.createdPost == nil {
-                   MakeAnimationView(animationName: "ArticleAnimation")
-                        .frame(width: 100, height: 100, alignment: .center)
-                } else {
-                    MakeAnimationView(animationName: "PostAnimation")
-                        .frame(width: 100, height: 100, alignment: .center)
+                Group {
+                    Text("文章內容")
+                    TextEditor(text: $postVM.body)
+                        .frame(height: 120)
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.3)))
                 }
-            }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("用戶 ID：")
+                    Spacer()
+                    Stepper(value: $postVM.userId, in: 1...10) {
+                        Text("\(postVM.userId)")
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+                    }
             
+                }
+                .padding(.horizontal)
+                
+                Button {
+                    postVM.addPost()
+                } label: {
+                    Text("送出")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 32)
+                        .background(Color(UIColor.label))
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .cornerRadius(16)
+                }
+                .padding(.horizontal)
+                .disabled(postVM.title.isEmpty || postVM.body.isEmpty)
+                .background(Color(UIColor.systemBackground))
+                Spacer()
+                HStack {
+                    if postVM.createdPost == nil {
+                        MakeAnimationView(animationName: "ArticleAnimation")
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        MakeAnimationView(animationName: "SendAnimation", loopMode: .playOnce)
+                            .frame(maxWidth: .infinity)
+                    }
+                  
+                }
+                .padding()
+            }
+            .background(Color(UIColor.systemGroupedBackground))
             .navigationTitle("新增文章")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("關閉") { dismiss() }
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(Color(UIColor.label))
+                    }
                 }
             }
-        }
-        .onReceive(postVM.$createdPost.compactMap { $0 }) { _ in
-            dismiss()
+            .onChange(of: postVM.createdPost) { createdPost in
+                if createdPost != nil {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
 }

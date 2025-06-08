@@ -25,11 +25,6 @@ struct AppTabView: View {
                     Image(systemName: "play.circle")
                         .imageScale(.large)
                 }
-            PersonView()
-                .tabItem {
-                    Image(systemName: "person.fill")
-                        .imageScale(.large)
-                }
         }
     }
 }

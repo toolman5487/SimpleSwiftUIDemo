@@ -17,6 +17,7 @@
 		1546B34E2DF5854800404435 /* ArticleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1546B34D2DF5854800404435 /* ArticleAnimation.json */; };
 		156BE0E52DF5866C00CCDDE9 /* MakeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BE0E42DF5866C00CCDDE9 /* MakeAnimationView.swift */; };
 		156BE0E72DF5875700CCDDE9 /* PostAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 156BE0E62DF5875700CCDDE9 /* PostAnimation.json */; };
+		156BE0E92DF5C85400CCDDE9 /* SendAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 156BE0E82DF5C85400CCDDE9 /* SendAnimation.json */; };
 		15AC97AB2DF414FF0071110E /* ArticlesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97AA2DF414FF0071110E /* ArticlesHomeView.swift */; };
 		15AC97AD2DF4150D0071110E /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97AC2DF4150D0071110E /* PhotosView.swift */; };
 		15AC97B42DF4197C0071110E /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97B32DF4197C0071110E /* ArticleModel.swift */; };
@@ -26,7 +27,6 @@
 		15AC97D52DF42C680071110E /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97D42DF42C680071110E /* PhotoModel.swift */; };
 		15AC97D82DF42CA80071110E /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97D72DF42CA80071110E /* PhotoService.swift */; };
 		15AC97DB2DF42E6B0071110E /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97DA2DF42E6B0071110E /* PhotoViewModel.swift */; };
-		15AC97DE2DF435DA0071110E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97DD2DF435DA0071110E /* PersonView.swift */; };
 		15AC97E32DF436BF0071110E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC97E22DF436BF0071110E /* VideoView.swift */; };
 		15AC97E62DF43A6B0071110E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15AC97E52DF43A6B0071110E /* Lottie */; };
 		15AC97E92DF43B9B0071110E /* RefreshAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 15AC97E82DF43B9B0071110E /* RefreshAnimation.json */; };
@@ -60,6 +60,7 @@
 		1546B34D2DF5854800404435 /* ArticleAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ArticleAnimation.json; sourceTree = "<group>"; };
 		156BE0E42DF5866C00CCDDE9 /* MakeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAnimationView.swift; sourceTree = "<group>"; };
 		156BE0E62DF5875700CCDDE9 /* PostAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostAnimation.json; sourceTree = "<group>"; };
+		156BE0E82DF5C85400CCDDE9 /* SendAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SendAnimation.json; sourceTree = "<group>"; };
 		15AC97742DF4100D0071110E /* JSONPlaceholderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AC97812DF410100071110E /* JSONPlaceholderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONPlaceholderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AC978B2DF410100071110E /* JSONPlaceholderDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONPlaceholderDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +73,6 @@
 		15AC97D42DF42C680071110E /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		15AC97D72DF42CA80071110E /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		15AC97DA2DF42E6B0071110E /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
-		15AC97DD2DF435DA0071110E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		15AC97E22DF436BF0071110E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		15AC97E82DF43B9B0071110E /* RefreshAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RefreshAnimation.json; sourceTree = "<group>"; };
 		15AC97EC2DF43C630071110E /* LottieRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieRefresh.swift; sourceTree = "<group>"; };
@@ -189,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				15AC97E12DF436AA0071110E /* VideoViews */,
-				15AC97DC2DF435C70071110E /* PersonViews */,
 				15AC97D32DF42B490071110E /* PhotoViews */,
 				15AC97B02DF417B60071110E /* ArticleViews */,
 			);
@@ -249,14 +248,6 @@
 			path = PhotoVM;
 			sourceTree = "<group>";
 		};
-		15AC97DC2DF435C70071110E /* PersonViews */ = {
-			isa = PBXGroup;
-			children = (
-				15AC97DD2DF435DA0071110E /* PersonView.swift */,
-			);
-			path = PersonViews;
-			sourceTree = "<group>";
-		};
 		15AC97E12DF436AA0071110E /* VideoViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +271,7 @@
 				156BE0E62DF5875700CCDDE9 /* PostAnimation.json */,
 				1546B34D2DF5854800404435 /* ArticleAnimation.json */,
 				15AC97E82DF43B9B0071110E /* RefreshAnimation.json */,
+				156BE0E82DF5C85400CCDDE9 /* SendAnimation.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -420,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156BE0E72DF5875700CCDDE9 /* PostAnimation.json in Resources */,
+				156BE0E92DF5C85400CCDDE9 /* SendAnimation.json in Resources */,
 				15AC97E92DF43B9B0071110E /* RefreshAnimation.json in Resources */,
 				1546B34E2DF5854800404435 /* ArticleAnimation.json in Resources */,
 			);
@@ -461,7 +454,6 @@
 				15AC97B92DF41C050071110E /* APIConfig.swift in Sources */,
 				15AC97D52DF42C680071110E /* PhotoModel.swift in Sources */,
 				1546B34C2DF579F100404435 /* PostArticleView.swift in Sources */,
-				15AC97DE2DF435DA0071110E /* PersonView.swift in Sources */,
 				15AC97AD2DF4150D0071110E /* PhotosView.swift in Sources */,
 				15AC97E32DF436BF0071110E /* VideoView.swift in Sources */,
 				1546B34A2DF575CF00404435 /* PostViewModel.swift in Sources */,

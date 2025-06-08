@@ -32,7 +32,7 @@ struct ArticlesHomeView: View {
             }
             .sheet(isPresented: $showPostArticle) {
                 PostArticleView()
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
             }
             .searchable(text: $articleVM.searchText, prompt: "搜尋文章")
             .task {
