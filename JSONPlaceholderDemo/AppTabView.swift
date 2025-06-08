@@ -10,7 +10,7 @@ import SwiftUI
 struct AppTabView: View {
     var body: some View {
         TabView {
-            ArticlesView()
+            ArticlesHomeView()
                 .tabItem {
                     Image(systemName: "doc.text")
                         .imageScale(.large)
@@ -25,7 +25,7 @@ struct AppTabView: View {
                     Image(systemName: "play.circle")
                         .imageScale(.large)
                 }
-            PostView()
+            PersonView()
                 .tabItem {
                     Image(systemName: "person.fill")
                         .imageScale(.large)

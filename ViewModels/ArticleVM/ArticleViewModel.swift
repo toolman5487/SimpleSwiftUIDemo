@@ -12,9 +12,21 @@ import Combine
 class ArticleViewModel: ObservableObject{
     
     @Published var articles: [Article] = []
+    @Published var searchText: String = ""
     @Published var errorMessage: String?
     @Published var isLoading = false
     private var cancellables = Set<AnyCancellable>()
+    
+    var filteredArticles: [Article] {
+           if searchText.isEmpty {
+               return articles
+           } else {
+               return articles.filter {
+                   $0.title.localizedCaseInsensitiveContains(searchText)
+               }
+           }
+       }
+
     
     func fetchArticles() {
         isLoading = true

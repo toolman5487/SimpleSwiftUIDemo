@@ -7,17 +7,18 @@
 
 import SwiftUI
 
+
 struct PhotosView: View {
     
-    @StateObject private var vm = PhotosViewModel()
+    @StateObject private var phtoVM = PhotosViewModel()
     @State private var searchText = ""
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 2), count: 3)
     
     private var filteredPhotos: [Photo] {
         if searchText.isEmpty {
-            return vm.photos
+            return phtoVM.photos
         } else {
-            return vm.photos.filter { photo in
+            return phtoVM.photos.filter { photo in
                 photo.title.localizedCaseInsensitiveContains(searchText)
             }
         }
@@ -26,15 +27,15 @@ struct PhotosView: View {
     var body: some View {
         NavigationView {
             Group {
-                if vm.isLoading {
+                if phtoVM.isLoading {
                     ProgressView()
-                } else if let message = vm.errorMessage {
+                } else if let message = phtoVM.errorMessage {
                     Text(message)
                         .foregroundColor(.red)
                 } else {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 2) {
-                            ForEach(filteredPhotos) { photo in
+                            ForEach(phtoVM.filteredPhotos) { photo in
                                 AsyncImage(url: URL(string: photo.thumbnailUrl)) { phase in
                                     switch phase {
                                     case .empty:
@@ -43,7 +44,7 @@ struct PhotosView: View {
                                         image
                                             .resizable()
                                             .scaledToFit()
-                                    case .failure(let error):
+                                    case .failure:
                                         EmptyView()
                                     @unknown default:
                                         EmptyView()
@@ -56,14 +57,14 @@ struct PhotosView: View {
                         .padding(2)
                     }
                     .refreshable {
-                        await vm.fetchPhotos()
+                        await phtoVM.fetchPhotos()
                     }
                 }
             }
-            .searchable(text: $searchText, prompt: "搜尋照片標題")
+            .searchable(text: $phtoVM.searchText, prompt: "搜尋照片標題")
         }
         .task {
-            vm.fetchPhotos()
+            await phtoVM.fetchPhotos()
         }
     }
 }

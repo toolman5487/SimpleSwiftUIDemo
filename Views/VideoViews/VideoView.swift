@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VideoView: View {
+    
     var body: some View {
         Image(systemName: "film.stack")
     }

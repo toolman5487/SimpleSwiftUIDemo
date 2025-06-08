@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct PostView: View {
+struct PersonView: View {
     var body: some View {
-    Image(systemName: "plus.message.fill")
+    Image(systemName: "person.fill")
     }
 }
 
 #Preview {
-    PostView()
+    PersonView()
 }

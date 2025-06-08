@@ -1,5 +1,5 @@
 //
-//  CommentModel.swift
+//  PostModel.swift
 //  JSONPlaceholderDemo
 //
 //  Created by Willy Hsu on 2025/6/7.
@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct Comment: Identifiable, Codable {
-    let postId: Int
+struct Article: Identifiable, Codable {
     let id: Int
-    let name: String
-    let email: String
+    let userId: Int
+    let title: String
     let body: String
 }

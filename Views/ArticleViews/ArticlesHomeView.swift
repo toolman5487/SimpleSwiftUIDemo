@@ -11,13 +11,29 @@ import Combine
 struct ArticlesHomeView: View {
     
     @StateObject private var articleVM = ArticleViewModel()
+    @State private var showPostArticle = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(articleVM.filteredArticles){ article in
-                ArticleRow(article: article)
+                NavigationLink(destination: ArticleDetailView(article: article)) {
+                    ArticleRow(article: article)
+                }
             }
             .navigationTitle("JSON 文章")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showPostArticle = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $showPostArticle) {
+                PostArticleView()
+                    .presentationDetents([.medium, .large])
+            }
             .searchable(text: $articleVM.searchText, prompt: "搜尋文章")
             .task {
                 articleVM.fetchArticles()
@@ -28,20 +44,14 @@ struct ArticlesHomeView: View {
     struct ArticleRow: View {
         let article: Article
         var body: some View {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(article.title)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Text(article.body)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .lineLimit(3)
-                }
-                
-                Spacer()
-                Image(systemName: "chevron.right")
+            VStack(alignment: .leading, spacing: 8) {
+                Text(article.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text(article.body)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .lineLimit(3)
             }
         }
     }
