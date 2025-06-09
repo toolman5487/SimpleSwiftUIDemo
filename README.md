@@ -6,7 +6,7 @@
 - 網路層：URLSession + Combine / async/await  
 - 動畫：Lottie for iOS  
 - 資料儲存：UserDefaults (`UserDataDefaults.swift`)  
-- 依賴管理：純 Swift Package / CocoaPods（如有）  
+- 依賴管理：純 Swift Package 
 
 ## 功能特色
 - **文章瀏覽**  
