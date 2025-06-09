@@ -46,3 +46,5 @@
 - APIConfig 統一管理 Base URL、API Key。
 - 動畫整合：
 - 自訂 MakeAnimationView 封裝 Lottie 動畫，並在各種互動場景中呼叫。
+
+##本專案採用 MIT License，歡迎自由使用與修改。
