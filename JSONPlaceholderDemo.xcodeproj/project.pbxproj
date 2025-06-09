@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1543FEBE2DF6811000BCD513 /* UserDataDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1543FEBD2DF6811000BCD513 /* UserDataDefaults.swift */; };
+		1543FEC12DF68E5700BCD513 /*  LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1543FEC02DF68E5700BCD513 /*  LocationManager.swift */; };
 		1546B33C2DF4782600404435 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546B33B2DF4782600404435 /* ArticleDetailView.swift */; };
 		1546B3412DF47D5B00404435 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546B3402DF47D5B00404435 /* CommentModel.swift */; };
 		1546B3432DF47D8600404435 /*  CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546B3422DF47D8600404435 /*  CommentService.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1543FEBD2DF6811000BCD513 /* UserDataDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDefaults.swift; sourceTree = "<group>"; };
+		1543FEC02DF68E5700BCD513 /*  LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " LocationManager.swift"; sourceTree = "<group>"; };
 		1546B33B2DF4782600404435 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		1546B3402DF47D5B00404435 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		1546B3422DF47D8600404435 /*  CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CommentService.swift"; sourceTree = "<group>"; };
@@ -125,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1543FEBF2DF68E4800BCD513 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1543FEC02DF68E5700BCD513 /*  LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		1546B33D2DF47D3500404435 /* ArticleModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,17 +146,19 @@
 			path = ArticleModel;
 			sourceTree = "<group>";
 		};
-		156BE0EE2DF67C5B00CCDDE9 /* New Group */ = {
+		156BE0EE2DF67C5B00CCDDE9 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
+				1543FEBD2DF6811000BCD513 /* UserDataDefaults.swift */,
 			);
-			path = "New Group";
+			path = UserData;
 			sourceTree = "<group>";
 		};
 		15AC976B2DF4100D0071110E = {
 			isa = PBXGroup;
 			children = (
-				156BE0EE2DF67C5B00CCDDE9 /* New Group */,
+				1543FEBF2DF68E4800BCD513 /* Manager */,
+				156BE0EE2DF67C5B00CCDDE9 /* UserData */,
 				15AC97E72DF43A9F0071110E /* Animations */,
 				15AC97A12DF4147E0071110E /* Views */,
 				15AC97A02DF4121B0071110E /* ViewModels */,
@@ -454,6 +468,7 @@
 				15AC97AB2DF414FF0071110E /* ArticlesHomeView.swift in Sources */,
 				1546B3412DF47D5B00404435 /* CommentModel.swift in Sources */,
 				156BE0EC2DF6768100CCDDE9 /* SettingView.swift in Sources */,
+				1543FEBE2DF6811000BCD513 /* UserDataDefaults.swift in Sources */,
 				15AC97DB2DF42E6B0071110E /* PhotoViewModel.swift in Sources */,
 				15AC97D82DF42CA80071110E /* PhotoService.swift in Sources */,
 				1546B33C2DF4782600404435 /* ArticleDetailView.swift in Sources */,
@@ -466,6 +481,7 @@
 				15AC97B92DF41C050071110E /* APIConfig.swift in Sources */,
 				15AC97D52DF42C680071110E /* PhotoModel.swift in Sources */,
 				1546B34C2DF579F100404435 /* PostArticleView.swift in Sources */,
+				1543FEC12DF68E5700BCD513 /*  LocationManager.swift in Sources */,
 				15AC97AD2DF4150D0071110E /* PhotosView.swift in Sources */,
 				15AC97E32DF436BF0071110E /* VideoView.swift in Sources */,
 				1546B34A2DF575CF00404435 /* PostViewModel.swift in Sources */,
@@ -633,6 +649,7 @@
 				DEVELOPMENT_TEAM = G5A93Q7SG9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "需要取得您的定位資訊";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -661,6 +678,7 @@
 				DEVELOPMENT_TEAM = G5A93Q7SG9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "需要取得您的定位資訊";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

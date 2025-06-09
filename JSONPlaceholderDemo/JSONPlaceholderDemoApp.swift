@@ -11,7 +11,12 @@ import SwiftUI
 struct JSONPlaceholderDemoApp: App {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
-
+    
+    init() {
+        UserDataDefaults.register()
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
             AppTabView()
