@@ -41,17 +41,6 @@ struct PostArticleView: View {
                 }
                 .padding(.horizontal)
                 
-                HStack {
-                    Text("用戶 ID：")
-                    Spacer()
-                    Stepper(value: $postVM.userId, in: 1...10) {
-                        Text("\(postVM.userId)")
-                            .foregroundColor(Color(UIColor.secondaryLabel))
-                    }
-            
-                }
-                .padding(.horizontal)
-                
                 Button {
                     postVM.addPost()
                 } label: {
@@ -65,7 +54,7 @@ struct PostArticleView: View {
                 .padding(.horizontal)
                 .disabled(postVM.title.isEmpty || postVM.body.isEmpty)
                 .background(Color(UIColor.systemBackground))
-                Spacer()
+    
                 HStack {
                     if postVM.createdPost == nil {
                         MakeAnimationView(animationName: "ArticleAnimation")

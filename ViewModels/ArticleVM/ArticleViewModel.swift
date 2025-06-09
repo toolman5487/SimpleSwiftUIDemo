@@ -27,11 +27,10 @@ class ArticleViewModel: ObservableObject{
            }
        }
 
-    
     func fetchArticles() {
         isLoading = true
         URLSession.shared
-            .dataTaskPublisher(for: APIConfig.baseURL.appendingPathComponent("posts"))
+            .dataTaskPublisher(for: JSONAPIConfig.baseURL.appendingPathComponent("posts"))
             .map(\.data)
             .decode(type: [Article].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)

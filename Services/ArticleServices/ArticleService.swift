@@ -11,7 +11,7 @@ import Combine
 class ArticleService {
     
     func fetchArticles(start: Int? = nil, limit: Int? = nil, completion: @escaping ([Article]?, Error?) -> Void) {
-        var urlString = "\(APIConfig.baseURL)/posts"
+        var urlString = "\(JSONAPIConfig.baseURL)/posts"
         guard let url = URL(string: urlString) else {
             completion(nil, URLError(.badURL))
             return
@@ -40,7 +40,7 @@ class ArticleService {
     
     
     func addPostPublisher(_ newPost: Article) -> AnyPublisher<Article, Error> {
-        let urlString = "\(APIConfig.baseURL)/posts"
+        let urlString = "\(JSONAPIConfig.baseURL)/posts"
         guard let url = URL(string: urlString) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }

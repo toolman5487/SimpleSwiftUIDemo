@@ -10,7 +10,7 @@ import Foundation
 class PhotoService {
 
     func fetchPhotos() async throws -> [Photo] {
-        let url = APIConfig.baseURL.appendingPathComponent("photos")
+        let url = JSONAPIConfig.baseURL.appendingPathComponent("photos")
         let (data, _) = try await URLSession.shared.data(from: url)
         var photos = try JSONDecoder().decode([Photo].self, from: data)
         

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct JSONapiconfig {
+struct JSONAPIConfig {
     static let baseURL = URL(string: "https://jsonplaceholder.typicode.com")!
 }

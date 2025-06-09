@@ -13,7 +13,7 @@ protocol CommentServiceProtocol {
 }
 
 struct CommentService: CommentServiceProtocol {
-    private let baseURL = APIConfig.baseURL
+    private let baseURL = JSONAPIConfig.baseURL
 
     func fetchCommentsPublisher(postId: Int) -> AnyPublisher<[Comment], Error> {
         let urlString = "\(baseURL)/comments?postId=\(postId)"

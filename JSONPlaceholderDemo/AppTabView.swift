@@ -20,7 +20,7 @@ struct AppTabView: View {
                     Image(systemName: "magnifyingglass")
                         .imageScale(.large)
                 }
-            VideoView()
+            VideoHomeView()
                 .tabItem {
                     Image(systemName: "play.circle")
                         .imageScale(.large)

@@ -61,8 +61,17 @@ struct PhotosView: View {
                     }
                 }
             }
+            .navigationTitle("JSON 圖片")
             .searchable(text: $phtoVM.searchText, prompt: "搜尋照片標題")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingView()) {
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
         }
+        
         .task {
             await phtoVM.fetchPhotos()
         }
