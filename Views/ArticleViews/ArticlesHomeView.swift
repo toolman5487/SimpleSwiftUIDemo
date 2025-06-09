@@ -29,6 +29,11 @@ struct ArticlesHomeView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingView()) {
+                        Image(systemName: "gearshape")
+                    }
+                }
             }
             .sheet(isPresented: $showPostArticle) {
                 PostArticleView()

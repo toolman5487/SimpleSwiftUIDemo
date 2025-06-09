@@ -26,9 +26,18 @@ struct PostArticleView: View {
                 
                 Group {
                     Text("文章內容")
-                    TextEditor(text: $postVM.body)
-                        .frame(height: 120)
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.3)))
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $postVM.body)
+                            .frame(height: 180)
+                            .background(Color(UIColor.systemBackground))
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.3)))
+                        if postVM.body.isEmpty {
+                            Text("請輸入內容…")
+                                .foregroundColor(Color(UIColor.tertiaryLabel))
+                                .padding(.top, 8)
+                                .padding(.leading, 5)
+                        }
+                    }
                 }
                 .padding(.horizontal)
                 
