@@ -38,11 +38,11 @@
 	•	選擇模擬器或真機，按下 Run (⌘R) 即可。
 
 ## 架構說明
-•	採用 MVVM 模式：
-•	ViewModels/：負責呼叫 Services，處理資料並透過 @Published 推送至 View。
-•	Views/：純 UI，依賴對應的 ViewModel 顯示資料與處理互動。
-•	Service 層：
-•	ArticleService、PhotoService、PixabayVideoService 分別封裝 API 請求邏輯。
-•	APIConfig 統一管理 Base URL、API Key。
-•	動畫整合：
-•	自訂 MakeAnimationView 封裝 Lottie 動畫，並在各種互動場景中呼叫。
+- 採用 MVVM 模式：
+- ViewModels/：負責呼叫 Services，處理資料並透過 @Published 推送至 View。
+- Views/：純 UI，依賴對應的 ViewModel 顯示資料與處理互動。
+- Service 層：
+- ArticleService、PhotoService、PixabayVideoService 分別封裝 API 請求邏輯。
+- APIConfig 統一管理 Base URL、API Key。
+- 動畫整合：
+- 自訂 MakeAnimationView 封裝 Lottie 動畫，並在各種互動場景中呼叫。
