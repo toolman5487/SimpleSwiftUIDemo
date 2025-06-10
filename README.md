@@ -1,5 +1,5 @@
 # JSONPlaceholderDemo
-一個使用 SwiftUI 結合 Combine 與 `async/await` 技術，串接 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) 與 [Pixabay](https://pixabay.com/) API，展示文章、相片與影片內容的多媒體示範應用程式。
+使用 SwiftUI 結合 Combine 與 `async/await` 技術，串接 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) 與 [Pixabay](https://pixabay.com/) API，展示文章、相片與影片內容的多媒體示範應用程式。
 
 ## 技術
 - 語言與框架：Swift 5, SwiftUI, Combine, async/await  
