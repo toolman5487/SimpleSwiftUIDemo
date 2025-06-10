@@ -46,4 +46,7 @@
 - 動畫整合：
 - 自訂 MakeAnimationView 封裝 Lottie 動畫，並在各種互動場景中呼叫。
 
+## 作品集介紹連結
+https://www.cake.me/portfolios/simple-swfitui-side-project
+
 ##本專案採用 MIT License，歡迎自由使用與修改。
