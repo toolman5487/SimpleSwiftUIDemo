@@ -14,8 +14,7 @@
   - 利用 Combine + `async/await` 管理載入狀態與錯誤處理，並在更新時顯示 Lottie 動畫。  
 
 - **相片搜尋**  
-  - 透過 `PhotoService` 串接 Pixabay Image API，支援關鍵字搜尋、分頁顯示與快取策略。  
-  - 在下拉更新與載入更多時，顯示自訂 Lottie 動畫組件。  
+  - 透過 `PhotoService` 串接 JSONPlaceholder API，支援關鍵字搜尋、分頁顯示與快取策略。   
 
 - **影片播放**  
   - 使用 `PixabayVideoService` 獲取影片清單，並在 `VideoDetailView` 中以 AVKit 播放。  
