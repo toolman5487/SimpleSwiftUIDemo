@@ -17,6 +17,7 @@ class PostViewModel: ObservableObject {
     @Published var createdPost: Article?
     @Published var isPosting: Bool = false
     @Published var errorMessage: String?
+    @Published var articles: [Article] = []
 
     private let service: ArticleService
     private var cancellables = Set<AnyCancellable>()
@@ -42,6 +43,7 @@ class PostViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] article in
                 self?.createdPost = article
+                self?.articles.insert(article, at: 0)
             }
             .store(in: &cancellables)
     }

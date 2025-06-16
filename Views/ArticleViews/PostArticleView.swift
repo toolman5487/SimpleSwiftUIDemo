@@ -13,6 +13,7 @@ struct PostArticleView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var postVM = PostViewModel()
     @State private var showPostSuccess = false
+    @FocusState private var isInputActive: Bool
     
     var body: some View {
         NavigationStack {
@@ -21,6 +22,9 @@ struct PostArticleView: View {
                     Text("標題")
                     TextField("請輸入標題", text: $postVM.title)
                         .textFieldStyle(.roundedBorder)
+                        .focused($isInputActive)
+                        .submitLabel(.done)
+                        .onSubmit { isInputActive = false }
                 }
                 .padding(.horizontal)
                 
@@ -28,6 +32,7 @@ struct PostArticleView: View {
                     Text("文章內容")
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $postVM.body)
+                            .focused($isInputActive)
                             .frame(height: 180)
                             .background(Color(UIColor.systemBackground))
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.3)))
@@ -54,7 +59,7 @@ struct PostArticleView: View {
                 .padding(.horizontal)
                 .disabled(postVM.title.isEmpty || postVM.body.isEmpty)
                 .background(Color(UIColor.systemBackground))
-    
+                
                 HStack {
                     if postVM.createdPost == nil {
                         MakeAnimationView(animationName: "ArticleAnimation")
@@ -63,7 +68,7 @@ struct PostArticleView: View {
                         MakeAnimationView(animationName: "SendAnimation", loopMode: .playOnce)
                             .frame(maxWidth: .infinity)
                     }
-                  
+                    
                 }
                 .padding()
             }
@@ -75,6 +80,14 @@ struct PostArticleView: View {
                     Button(action: { dismiss() }) {
                         Image(systemName: "xmark")
                             .foregroundColor(Color(UIColor.label))
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        isInputActive = false
                     }
                 }
             }

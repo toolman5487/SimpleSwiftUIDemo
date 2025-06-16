@@ -34,6 +34,13 @@ struct ArticlesHomeView: View {
                         Image(systemName: "gearshape")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        Task { await articleVM.fetchArticlesAsync() }
+                    } label: {
+                        Image(systemName: "arrow.trianglehead.2.clockwise")
+                    }
+                }
             }
             .sheet(isPresented: $showPostArticle) {
                 PostArticleView()

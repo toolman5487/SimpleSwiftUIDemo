@@ -13,7 +13,7 @@ struct VideoHomeView: View {
     
     var body: some View {
         NavigationView {
-            List(pixabayVM.videos, id: \.id) { video in
+            List(pixabayVM.filteredVideos, id: \.id) { video in
                 NavigationLink {
                     VideoDetailView(video: video)
                 } label: {
@@ -42,15 +42,18 @@ struct VideoHomeView: View {
                             AsyncImage(url: video.userImageURL) { phase in
                                 switch phase {
                                 case .empty:
-                                    ProgressView()
+                                    Image(systemName: "person.circle")
+                                        .foregroundColor(Color.secondary)
                                 case .success(let image):
                                     image
                                         .resizable()
                                         .scaledToFill()
                                 case .failure:
-                                    Color.secondary
+                                    Image(systemName: "person.circle")
+                                        .foregroundColor(Color.secondary)
                                 @unknown default:
-                                    EmptyView()
+                                    Image(systemName: "person.circle")
+                                        .foregroundColor(Color.secondary)
                                 }
                             }
                             .frame(width: 30, height: 30)
@@ -72,15 +75,16 @@ struct VideoHomeView: View {
                         }
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                        .padding(.leading, 8)
-                        
                     }
+                    .padding()
                 }
             }
+    
             .navigationTitle("影片列表")
             .onAppear {
                 pixabayVM.fetchVideos()
             }
+            .searchable(text: $pixabayVM.searchText, prompt: "搜尋標籤/作者")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: SettingView()) {
@@ -89,6 +93,7 @@ struct VideoHomeView: View {
                 }
             }
         }
+
     }
 }
 

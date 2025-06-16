@@ -10,6 +10,6 @@ import Foundation
 
 struct PixabayAPIConfig {
     static let baseURL = URL(string: "https://pixabay.com/api/videos/")!
-    static let apiKey = ""
+    static let apiKey = "50746176-cd5801228ed4621388eb97c2a"
 }
 

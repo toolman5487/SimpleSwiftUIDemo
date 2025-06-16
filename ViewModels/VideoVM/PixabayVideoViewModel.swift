@@ -13,12 +13,23 @@ class PixabayVideoViewModel: ObservableObject {
     @Published var videos: [VideoHit] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
+    @Published var searchText: String = ""
 
     private var cancellables = Set<AnyCancellable>()
     private let service: VideoServiceProtocol
 
     init(service: VideoServiceProtocol = PixabayVideoService.shared) {
         self.service = service
+    }
+    
+    var filteredVideos: [VideoHit] {
+        if searchText.isEmpty {
+            return videos
+        } else {
+            return videos.filter { video in
+                video.tags.localizedCaseInsensitiveContains(searchText) || video.user.localizedCaseInsensitiveContains(searchText)
+            }
+        }
     }
 
     func fetchVideos(query: String? = nil, page: Int = 1, perPage: Int = 20) {

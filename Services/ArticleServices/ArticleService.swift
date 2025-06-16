@@ -55,8 +55,11 @@ class ArticleService {
         return URLSession.shared
             .dataTaskPublisher(for: request)
             .tryMap { output in
-                guard let http = output.response as? HTTPURLResponse,
-                      http.statusCode == 201 else {
+                guard let http = output.response as? HTTPURLResponse else {
+                    throw URLError(.badServerResponse)
+                }
+                print("HTTP 狀態碼：\(http.statusCode)")
+                guard http.statusCode == 201 else {
                     throw URLError(.badServerResponse)
                 }
                 return output.data
